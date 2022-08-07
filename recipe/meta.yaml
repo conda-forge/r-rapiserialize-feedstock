@@ -1,4 +1,4 @@
-{% set version = '0.1.0' %}
+{% set version = "0.1.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/RApiSerialize_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/RApiSerialize/RApiSerialize_{{ version }}.tar.gz
-  sha256: 324d42c655c27b4647d194bfcd7c675da95c67ea3a74ce99853502022792a23e
+  sha256: b7d319069cca964c2da61a50dc3984a974f8a019dfc78ad66af72c58b4e9713e
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
+  merge_build_host: true  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -44,16 +44,11 @@ test:
 about:
   home: https://CRAN.R-project.org/package=RApiSerialize
   license: GPL-2
-  summary: This package provides other packages with access to the internal R serialization code.
-    Access to this code is provided at the C function level by using the registration
-    of native function mechanism. Client packages simply include a single header file
-    RApiSerializeAPI.h provided by this package. . This packages builds on the Rhpc
-    package by Junji Nakano and Ei-ji Nakama which also includes a (partial) copy of
-    the file src/main/serialize.c from R itself. . The R Core group is the original
-    author of the serialization code made available by this package.
+  summary: This package provides other packages with access to the internal R serialization code. Access to this code is provided at the C function level by using the registration of native function mechanism. Client packages simply include a single header file RApiSerializeAPI.h provided by this package. . This packages
+    builds on the Rhpc package by Junji Nakano and Ei-ji Nakama which also includes a (partial) copy of the file src/main/serialize.c from R itself. . The R Core group is the original author of the serialization code made available by this package.
   license_family: GPL2
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
